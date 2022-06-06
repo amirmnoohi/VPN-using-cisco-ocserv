@@ -2,8 +2,6 @@
 
 
 
-![TeamCity CodeBetter](https://img.shields.io/teamcity/codebetter/bt428.svg?style=for-the-badge)
-
 ![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg?style=for-the-badge)
 
 
@@ -47,7 +45,7 @@ $ yum install net-tools epel-release radcli
 First of All Clone the Project : 
 
 ```shell
-$ git clone https://gitlab.com/limner/CISCO-VPN-SERVICE
+$ git clone https://gitlab.com/amirmnoohi/CISCO-VPN-SERVICE
 $  cd CISCO-VPN-SERVICE/
 ```
 
