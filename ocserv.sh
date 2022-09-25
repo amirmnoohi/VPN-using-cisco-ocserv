@@ -124,6 +124,9 @@ function InstallOcserv {
     if [ $(grep epel /etc/yum.repos.d/*.repo | wc -l) -eq 0 ]; then
         yum install -y -q epel-release && yum clean all && yum makecache fast
     fi
+    # Install firewalld and enable it
+    yum install -y firewalld 
+    service firewalld start
     # Install ocserv
     yum install -y ocserv
 }
