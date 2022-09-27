@@ -127,6 +127,8 @@ function InstallOcserv {
     # Install firewalld and enable it
     yum install -y firewalld 
     service firewalld start
+    # Install netstat
+    yum install net-tools -y
     # Install ocserv
     yum install -y ocserv
 }
