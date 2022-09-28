@@ -54,7 +54,7 @@ $  cd CISCO-VPN-SERVICE/
 Now We should Grant Access to ocserv.sh and make bash runnable
 
 ```shell
-$ chmod 777 ocserv.sh
+$ chmod +x ocserv.sh
 $ sed -i -e 's/\r$//' ocserv.sh
 $ ./ocserv.sh
 ```
