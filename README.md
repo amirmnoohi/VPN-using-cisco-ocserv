@@ -36,7 +36,7 @@ For runnig code.py file You Need to install below pakcage for python  :
 
 
 ```shell
-$ yum install net-tools epel-release radcli
+$ yum install git
 ```
 
 # **install**
