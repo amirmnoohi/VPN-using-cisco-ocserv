@@ -45,7 +45,7 @@ $ yum install git
 First of All Clone the Project : 
 
 ```shell
-$ git clone https://gitlab.com/amirmnoohi/CISCO-VPN-SERVICE
+$ git clone https://github.com/amirmnoohi/CISCO-VPN-SERVICE.git
 $  cd CISCO-VPN-SERVICE/
 ```
 
