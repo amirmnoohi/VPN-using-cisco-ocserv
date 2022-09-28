@@ -46,7 +46,7 @@ First of All Clone the Project :
 
 ```shell
 $ git clone https://github.com/amirmnoohi/VPN-using-cisco-ocserv.git
-$  cd CISCO-VPN-SERVICE/
+$  cd VPN-using-cisco-ocserv/
 ```
 
 ## Step1 : Grant Access
