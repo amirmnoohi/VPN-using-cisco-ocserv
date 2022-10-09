@@ -36,7 +36,7 @@ For runnig code.py file You Need to install below pakcage for python  :
 
 
 ```shell
-$ yum install git
+yum install git
 ```
 
 # **install**
@@ -45,8 +45,7 @@ $ yum install git
 First of All Clone the Project : 
 
 ```shell
-$ git clone https://github.com/amirmnoohi/VPN-using-cisco-ocserv.git
-$  cd VPN-using-cisco-ocserv/
+git clone https://github.com/amirmnoohi/VPN-using-cisco-ocserv.git && cd VPN-using-cisco-ocserv/
 ```
 
 ## Step1 : Grant Access
@@ -54,9 +53,9 @@ $  cd VPN-using-cisco-ocserv/
 Now We should Grant Access to ocserv.sh and make bash runnable
 
 ```shell
-$ chmod +x ocserv.sh
-$ sed -i -e 's/\r$//' ocserv.sh
-$ ./ocserv.sh
+chmod +x ocserv.sh
+sed -i -e 's/\r$//' ocserv.sh
+./ocserv.sh
 ```
 
 ### Step1.1 : Edit Encrypting Info
