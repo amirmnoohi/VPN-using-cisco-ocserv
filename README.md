@@ -85,7 +85,7 @@ Wait for the script to finish.
 Now You Can Create Cisco user with following command.
 
 ```shell
-$ ocpasswd -c / etc / ocserv / ocpasswd Name
+$ ocpasswd -c /etc/ocserv/ocpasswd Name
 ```
 # **Usage**
 For using This Service You Can use Cisco Anyconnect For any platform
