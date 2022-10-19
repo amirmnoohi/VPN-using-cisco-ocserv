@@ -36,7 +36,7 @@ For runnig code.py file You Need to install below pakcage for python  :
 
 
 ```shell
-yum install git
+yum install git -y
 ```
 
 # **install**
@@ -107,4 +107,4 @@ Reach out to me at one of the following places!
 
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2018 © <a href="https://git.highhost.org/limner/CISCO-VPN-SERVICE" target="_blank">CISCO VPN SERVICE</a>.
+- Copyright 2018 © <a href="https://github.com/amirmnoohi/VPN-using-cisco-ocserv" target="_blank">CISCO VPN SERVICE</a>.
