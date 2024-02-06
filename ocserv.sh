@@ -6,13 +6,6 @@ if [[ $(id -u) != "0" ]]; then
     exit 1
 fi
 
-# Check whether CentOS 7 or RHEL 7 is detected
-if [[ $(grep "release 7." /etc/redhat-release 2>/dev/null | wc -l) -eq 0 ]]; then
-    printf "\e[42m\e[31mError: Your OS is NOT CentOS 7 or RHEL 7.\e[0m\n"
-    printf "\e[42m\e[31mThis install script is ONLY for CentOS 7 and RHEL 7.\e[0m\n"
-    exit 1
-fi
-
 basepath=$(dirname $0)
 cd ${basepath}
 
@@ -122,7 +115,7 @@ function InstallOcserv {
 
     # Install epel-release
     if [ $(grep epel /etc/yum.repos.d/*.repo | wc -l) -eq 0 ]; then
-        yum install -y -q epel-release && yum clean all && yum makecache fast
+        yum install -y -q epel-release && yum clean all
     fi
     # Install firewalld and enable it
     yum install -y firewalld 
@@ -140,8 +133,8 @@ function ConfigOcserv {
         certtool --generate-privkey --outfile ca-key.pem
 
         cat << _EOF_ >ca.tmpl
-cn = "SOFTSERVER"
-organization = "SOFTSERVER"
+cn = "NOOHI"
+organization = "NOOHI"
 serial = 1
 expiration_days = 3650
 ca
@@ -156,7 +149,7 @@ _EOF_
 
         cat << _EOF_ >server.tmpl
 cn = "IP"
-organization = "SOFTSERVER"
+organization = "NOOHI"
 serial = 2
 expiration_days = 3650
 signing_key
@@ -218,21 +211,6 @@ function ConfigFirewall {
     fi
 }
 
-function Install-http-parser {
-    if [[ $(rpm -q http-parser | grep -c "http-parser-2.0") = 0 ]]; then
-        mkdir -p /tmp/http-parser-2.0 /opt/lib
-        cd /tmp/http-parser-2.0
-        wget "https://cbs.centos.org/kojifiles/packages/http-parser/2.0/5.20121128gitcd01361.el7/x86_64/http-parser-2.0-5.20121128gitcd01361.el7.x86_64.rpm"
-        rpm2cpio http-parser-2.0-5.20121128gitcd01361.el7.x86_64.rpm | cpio -div
-        mv usr/lib64/libhttp_parser.so.2* /opt/lib
-        sed -i 'N;/Type=forking/a\Environment=LD_LIBRARY_PATH=/opt/lib' /lib/systemd/system/ocserv.service
-        sed -i 'N;/Type=forking/a\ExecStartPost=/bin/sleep 0.1' /lib/systemd/system/ocserv.service
-        systemctl daemon-reload
-        cd ~
-        rm -rf /tmp/http-parser-2.0
-    fi
-}
-
 function ConfigSystem {
     #Disabled selinux
     sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
@@ -252,16 +230,6 @@ function ConfigSystem {
 function PrintResult {
     #Detects whether the firewall and the ocserv service are working properly
     clear
-    printf "\e[36mChenking Firewall status...\e[0m\n"
-    iptables -L -n | grep --color=auto -E "(${port}|${vpnnetwork})"
-    line=$(iptables -L -n | grep -c -E "(${port}|${vpnnetwork})")
-    if [[ ${line} -ge 2 ]]
-    then
-        printf "\e[34mFirewall is Fine! \e[0m\n"
-    else
-        printf "\e[33mWARNING!!! Firewall is Something Wrong! \e[0m\n"
-    fi
-
     echo
     printf "\e[36mChenking ocserv service status...\e[0m\n"
     netstat -anptu | grep ":${port}" | grep ocserv-main | grep --color=auto -E "(${port}|ocserv-main|tcp|udp)"
@@ -293,7 +261,6 @@ PrintEnvironmentVariable
 InstallOcserv
 ConfigOcserv
 ConfigFirewall
-#Install-http-parser
 ConfigSystem
 PrintResult
 
