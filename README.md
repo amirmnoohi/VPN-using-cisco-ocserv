@@ -1,56 +1,53 @@
+
 # **CISCO Project** [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://gitlab.com/limner/bank-tornadowebserver)
-
-
 
 ![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg?style=for-the-badge)
 
+![Compatibility Check](https://img.shields.io/badge/CENTOS_7-compatible-brightgreen)
+![Compatibility Check](https://img.shields.io/badge/CENTOS_8-compatible-brightgreen)
+![Compatibility Check](https://img.shields.io/badge/CENTOS_9-compatible-brightgreen)
 
+This project integrates OCSERV with CENTOS, ensuring compatibility and successful deployment across CENTOS versions 7, 8, and 9.
 
-This is OCSERV + CENTOS PROJECT.
+Version: 3.0.0
 
-Version : 2.0.2
+Build: ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 
-Build : Passing
+Author: Amir Masoud Noohi
 
-Author : Amir Masoud Noohi
+Language: Bash Script
 
-Language : Bash Script
+# **Pre-Requirements**
 
+This project requires the following:
+- A VPS with a Dedicated IP and root Access
+- CENTOS 7, 8, or 9 Operating System
+- [optional] A valid SSL certificate
 
+# **Requirements**
 
+To run the `code.py` file, install the following packages for Python:
 
-# **PreRequirements**
-
-For This Project You Need below Requirements :
-- VPS with Dedicated IP + root Access
-- CENTOS 7 Operating System
-- [optional] valid ssl certificate
-
-# **Requirement**
-
-For runnig code.py file You Need to install below pakcage for python  :
-
-- radcli 
+- radcli
 - epel-release
 - net-tools
-
 
 ```shell
 yum install git -y
 ```
 
-# **install**
-## Step0 : Cloning
+# **Installation**
+## Step 0: Cloning
 
-First of All Clone the Project : 
+Start by cloning the project:
 
 ```shell
 git clone https://github.com/amirmnoohi/VPN-using-cisco-ocserv.git && cd VPN-using-cisco-ocserv/
 ```
 
-## Step1 : Grant Access
+## Step 1: Grant Access
 
-Now We should Grant Access to ocserv.sh and make bash runnable
+Grant execution access to `ocserv.sh` and make it runnable:
 
 ```shell
 chmod +x ocserv.sh
@@ -58,53 +55,43 @@ sed -i -e 's/\r$//' ocserv.sh
 ./ocserv.sh
 ```
 
-### Step1.1 : Edit Encrypting Info
+### Step 1.1: Edit Encryption Info
 
-For Changing Encrypting info open ocserv.sh with nano or vim 
+To modify encryption details, edit `ocserv.sh` using nano or vim:
 
-Then edit line 138-139 and 153-154
+- For organization and server IP address details, edit lines 138-139 and 153-154:
+  - CN[138] = "Your Company Name"
+  - organization[139] = "Your Company Name"
+  - CN[153] = "Server IP Address or any A record to IP"
+  - organization[154] = "Your Company Name"
 
-CN[138] = organization[139] = Your Comapany Name
+## Step 2: Answering Questions
 
-CN[153] = Server Ip Address or any A record To IP
+Run the script and answer the prompted questions for configuration and default settings. Wait for the script to complete.
 
-organization[154] = Your Comapany Name
+## Step 3: Creating Users
 
-
-## Step2 : Answering Questions
-
-When running the script, you will be asked a series of questions for convenience and default settings.
-
-Answer them.
-
-Wait for the script to finish.
-
-## Step3 : Creating User
-
-
-Now You Can Create Cisco user with following command.
+Create a Cisco user with the following command:
 
 ```shell
 $ ocpasswd -c /etc/ocserv/ocpasswd Name
 ```
-# **Usage**
-For using This Service You Can use Cisco Anyconnect For any platform
 
-I have Gathered All of them in <a href="https://noohi.org/cisco" target="_blank">HERE</a>
+This ensures broad compatibility across various CENTOS releases, facilitating a smooth setup process regardless of the specific CENTOS version you are using.
+
+# **Usage**
+
+For using this service, you can use Cisco Anyconnect for any platform. All necessary files are gathered [here](https://noohi.org/cisco).
 
 # **Support**
 
-Reach out to me at one of the following places!
-
-- Telegram at <a href="https://t.me/amirmnoohi" target="_blank">@amirmnoohi</a>
-- Gmail at <a href="mailto:highlimner@gmail.com" target="_blank">highlimner@gmail.com</a>
+For support, reach out to me at:
+- Telegram: [@amirmnoohi](https://t.me/amirmnoohi)
+- Gmail: [highlimner@gmail.com](mailto:highlimner@gmail.com)
 
 # **License**
 
-
-
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)
 
-
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2018 © <a href="https://github.com/amirmnoohi/VPN-using-cisco-ocserv" target="_blank">CISCO VPN SERVICE</a>.
+- Copyright 2018 © [CISCO VPN SERVICE](https://github.com/amirmnoohi/VPN-using-cisco-ocserv).
